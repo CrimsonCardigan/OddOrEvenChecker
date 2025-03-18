@@ -1,5 +1,5 @@
 ﻿while (true) {
-    Console.WriteLine("Hello. Input a number and I can tell you if it is odd or even.");
+    Console.WriteLine("Hello! Input a number and I can tell you if it is odd or even.");
 
     var GivenUserNumber = Console.ReadLine();
     int UserNumber = int.Parse(GivenUserNumber);

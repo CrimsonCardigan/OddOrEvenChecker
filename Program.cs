@@ -1,5 +1,4 @@
 ﻿using System;
-
 class Program
 {
     static void Main()
@@ -23,35 +22,61 @@ class Program
                 break; // Exit the loop if the user types 'exit'
             }
 
+
+
+
+
+
+
             if (GivenUserNumber.ToLower() == "game") // If the user types "Game"
             {
+            while (true)
+            { 
+
                 int randomNumber = random.Next(1, 101);  // Generate a random number between 1 and 100
-                Console.WriteLine("I have picked a number. Do you think it's 'odd' or 'even'?");
-                
+                Console.WriteLine("I have picked the number:" + randomNumber);
+                Console.WriteLine("Do you think it's 'odd' or 'even'?");
+
+        
                 string userGuess = Console.ReadLine()!.ToLower();  // Get user guess ("odd" or "even")
+
+
+            if (userGuess.ToLower() == "exit")
+            {
+                break; // Exit the loop if the user types 'exit'   
+            }
 
                 bool isEven = randomNumber % 2 == 0;  // isEven is when it can be divided by two
                 bool guessedCorrectly = (userGuess == "even" && isEven) || (userGuess == "odd" && !isEven);
 
+
                 if (guessedCorrectly)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine($"Correct! The number was {randomNumber}.");
+                    Console.WriteLine($"Correct! The number {randomNumber} is {userGuess}.");
                     correctGuesses++;
                 }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"Wrong! The number was {randomNumber}.");
+                    Console.WriteLine($"Wrong! The number {randomNumber} is {userGuess}.");
                     incorrectGuesses++;
                 }
 
                 Console.ResetColor();
                 Console.WriteLine($"Correct guesses: {correctGuesses} | Incorrect guesses: {incorrectGuesses}");
                 Console.WriteLine();
-                continue;  // Restart the loop for another input
-            }
+                continue;
 
+            }
+             if (GivenUserNumber.ToLower() == "exit")
+            {
+                break; // Exit the loop if the user types 'exit'
+            } 
+            continue;
+            Console.WriteLine("Thanks for playing!");
+            }
+            
             // Validate if input is a number
             bool isValid = int.TryParse(GivenUserNumber, out int UserNumber);
 
@@ -76,7 +101,5 @@ class Program
                 Console.WriteLine();
             }
         }
-
-        Console.WriteLine("Thanks for playing!");
     }
 }
